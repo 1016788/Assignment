@@ -1,0 +1,144 @@
+ create table Category(Catid int NOT NULL AUTO_INCREMENT,catname varchar(200),pcatid int, FOREIGN KEY (pcatid) REFERENCES Category(Catid),PRIMARY KEY (Catid));
+create table CustomerDetails(Custid int NOT NULL AUTO_INCREMENT,Custname varchar(40),CustAddress varchar(50),CustCity varchar(20),PhoneNo varchar(10),Email varchar(20),Gender varchar(10),DOB date,DOR date,PRIMARY KEY (Custid));
+create table Company(comid int NOT NULL AUTO_INCREMENT,compname varchar(50),address varchar(60),email varchar(40),phone bigint(10));
+create table Product(pid int, pname varchar(50),Catid int ,FOREIGN KEY (Catid) REFERENCES Category (Catid),mes_unit varchar(30),price int,mfdate date,expirydate date,comid int,FOREIGN KEY (comid) REFERENCES Company(comid),PRIMARY KEY(pid));
+create table Bill(billno int NOT NULL AUTO_INCREMENT,billdate date,Custid int,FOREIGN KEY (Custid) REFERENCES CustomerDetails(Custid),PRIMARY KEY(billno));
+create table Billitem(billitemid int
+ NOT NULL AUTO_INCREMENT,billno int,FOREIGN KEY(billno) REFERENCES Bill(billno),pid int,FOREIGN KEY(pid) REFERENCES Product(pid),quantity int,price DECIMAL,PRIMARY KEY(billitemid));
+
+
+
+Message List
+Profile picture of Ankesh Vijay Patil.which DP you used in project? give me a... by Ankesh Vijay Patil
+Ankesh Vijay Patil17:24
+which DP you used in project?
+give me any usecase for singleton?
+why string is immutable.
+where to use singleton object?
+
+
+
+singalton
+1. circular dependency how you can manage? which injection you will use?
+     how to avoid lazy loading?
+join query
+core java:
+    multi threading, excecuter f/w
+    demon threading
+    1 diff in list and set.
+    java 8 : find out occucrences of string :BANANA APPLE ORANGE ORANGE BANANA BANANA APPLE BANANA ORANGE
+    why we use    optonal
+    diff bet stream and parrale stream?
+diff bet controller and @RestController
+@Qualifire
+MVC
+
+
+
+[10-08 20:10] Akash Meshram 07122251647 080... by Ankesh Vijay Patil
+Ankesh Vijay Patil17:24
+[10-08 20:10] Akash Meshram
+
+07122251647
+
+
+
+08069033999
+
+
+
+suppor@ucnindia.in
+
+
+
+
+    BNY Interview Questions:-
+    ..........................
+    Ques.1.> What is local class in java?
+    Ques.2> What is abstract class? Explain with Example.
+    Ques.3> What is the difference between Abstract class and Interface?
+    Ques.4> Explain the MVC Flow with coding.
+    Ques.5> How to clone the project from remote repository to local repository?
+    Ques.6> what is actuator in Spring Boot?
+
+
+
+
+++++++++++++++++
+
+
+
+BNMY interview Questions:
+
+
+
+1)Difference between Exception and Error
+
+
+
+2)Hackerank FizBuzz question
+
+
+
+3)Find the occurennce of each number from array or list;
+
+
+
+4)Read the below data from a file and then print the data as output
+Input from file :
+10
+gandhi nagar
+
+
+
+telegana
+
+
+
+andhra pradesh
+
+
+
+output:
+10
+Gandhi Nagar
+
+
+
+Telegana
+
+
+
+Andhra Pradesh
+
+
+
+4)Write a architectural code  when request come from UI and save the data in database
+
+
+
+5)Check vowel from the givent string and write occurence of each vowels
+
+
+
+6)How to build a project
+
+
+
+7)How to Write Test cases
+
+
+
+8)how to do version control
+
+
+
+9)Abstraction
+
+
+
+10)If any of the Database goes down how will you down the services
+
+has context menu
+
+
