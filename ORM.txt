@@ -1,0 +1,68 @@
+ create table Customer(custid int NOT NULL AUTO_INCREMENT,custname varchar(200),custaddress varchar(200),cust_dob Date,cust_dor Date,PRIMARY KEY (custid));
+create table Branch(branchid int NOT NULL AUTO_INCREMENT,branchName varchar(20),branchaddress varchar(50),PRIMARY KEY(branchid));
+create table Loan(loanid int NOT NULL AUTO_INCREMENT,custid int, FOREIGN KEY (custid) REFERENCES Customer(custid),loandate date,loanoverdate date,branchid int,FOREIGN KEY (branchid) REFERENCES Branch (branchid),loantype varchar(40),PRIMARY KEY (loanid));
+
+
+Customer
+ insert into Customer values(1,'Shubhangi','pune','1996-06-12','2022-03-20');
+ insert into Customer values(2,'Asmita','pune','1996-09-12','2022-04-20');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Customer values(3,'Abhaya','pune','1996-05-14','2022-06-12');
+Query OK, 1 row affected (0.05 sec)
+
+
+Branch
+ insert into Branch values(11,'SBI','tasgaon');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Branch values(12,'IDBI','Degloor');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Branch values(13,'ICICI','Akola');
+Query OK, 1 row affected (0.06 sec)
+
+
+
+Loan
+
+ insert into Loan values(111,2,'2022-03-26','2023-10-11',11,'care lone',1200000);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into Loan values(112,1,'2022-04-20','2024-10-03',13,'personal lone',750000);
+Query OK, 1 row affected (0.32 sec)
+
+mysql> insert into Loan values(113,3,'2022-06-12','2026-10-03',12,'home lone',1250000);
+Query OK, 1 row affected (0.08 sec)
+
+
+
+Query:
+
+
+1) select l.custid,c.custname,l.loanAmount from Customer as c inner join Loan as l on c.custid=l.custid where l.loanAmount=(select min(loanAmount) from Loan);
+2) select l.custid,c.custname,l.loanAmount from Customer as c inner join Loan as l on c.custid=l.custid where l.loanAmount=(select max(loanAmount) from Loan);
+3) select c.custname,count(l.custid)
+    -> from
+    -> Customer as c
+    -> inner join
+    -> Loan as l
+    -> on c.custid=l.custid
+    -> group by c.custid;
+4)
+select b.branchname,count(l.loandate) total_count_in_month from loan l inner join branch b on l.branchid=b.branchid group by b.branchname;
+5)select loantype, sum(loanAmount) total_count_loan from Loan group by loantype;
+6) select *from Loan where loanoverdate between curdate() AND  curdate() + 7;
+
+
+
+
+
+
+
+
+<property name="custid"></property>
+<property name="custname"></property>
+<property name="custaddress"></property>
+<property name="cust_dob"></property>
+<property name="cust_dor"></property>
